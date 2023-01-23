@@ -12,7 +12,7 @@ import { MessageService } from 'primeng/api';
 })
 export class SigninComponent {
 
-  signinForm = this.fb.group({
+  signinForm = this.formBuilder.group({
     username: ['', Validators.required],
     email: ['', {
       validators: [
@@ -31,7 +31,7 @@ export class SigninComponent {
   });
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private messageService: MessageService
   ) { }
 

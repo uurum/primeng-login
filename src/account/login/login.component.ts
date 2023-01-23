@@ -15,7 +15,7 @@ import { mockUser } from 'src/shared/data/mockData';
 })
 export class LoginComponent {
 
-  loginForm = this.fb.group({
+  loginForm = this.formBuilder.group({
     email: ['', {
       validators: [
         Validators.required,
@@ -33,7 +33,7 @@ export class LoginComponent {
   });
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private messageService: MessageService,
     private router: Router) { }
 
