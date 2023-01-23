@@ -11,6 +11,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { SigninComponent } from 'src/account/signin/signin.component';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
+import { AnimateModule } from 'primeng/animate';
 import { LoginComponent } from 'src/account/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
@@ -31,7 +32,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     PasswordModule,
     InputTextModule,
     ButtonModule,
-    ToastModule
+    ToastModule,
+    AnimateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

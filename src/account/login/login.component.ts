@@ -10,7 +10,6 @@ import { mockUser } from 'src/shared/data/mockData';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
   animations: [accountModuleAnimation()],
   providers: [MessageService]
 })
