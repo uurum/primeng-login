@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { accountModuleAnimation } from 'src/shared/animations/routerTransition';
 import { FormBuilder, Validators } from '@angular/forms';
 import { createPasswordStrengthValidator } from 'src/shared/controls/controls';
 import { MessageService } from 'primeng/api';
@@ -7,7 +6,6 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  animations: [accountModuleAnimation()],
   providers: [MessageService]
 })
 export class SigninComponent {

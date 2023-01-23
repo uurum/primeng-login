@@ -3,14 +3,12 @@ import { MessageService } from 'primeng/api';
 import { Validators, FormBuilder } from '@angular/forms';
 import { Component } from '@angular/core';
 import { createPasswordStrengthValidator } from 'src/shared/controls/controls';
-import { accountModuleAnimation } from 'src/shared/animations/routerTransition';
 import { LoginInput } from 'src/shared/models/signin.model';
 import { mockUser } from 'src/shared/data/mockData';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  animations: [accountModuleAnimation()],
   providers: [MessageService]
 })
 export class LoginComponent {
