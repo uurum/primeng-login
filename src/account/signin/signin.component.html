@@ -1,49 +1,53 @@
-<div class="signin-form" [@routerTransition]>
-  <div>
-    <h3>Sign In</h3>
+<div class="flex align-items-center justify-content-center bg-cyan-50 h-full">
+
+  <div class="signin-form" pAnimate enterClass="flip" leaveClass="fadeoutleft"
+    class="bg-white border-round-sm p-5 w-25rem animation-duration-2000 animation-ease-out">
+    <div>
+      <h3>Sign In</h3>
+    </div>
+
+    <form [formGroup]="signinForm">
+
+      <div class="flex flex-column mb-3">
+        <label class="mb-1" for="username">Username</label>
+        <input id="username" type="text" formControlName="username" pInputText>
+        <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="text-red-500 text-sm">
+          Username is required.
+        </div>
+      </div>
+
+      <div class="flex flex-column mb-3">
+        <label class="mb-1" for="email">Email</label>
+        <input id="email" type="email" formControlName="email" pInputText>
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="text-red-500 text-sm">
+          <div *ngIf="email?.errors?.['required']">
+            Email is required!
+          </div>
+          <div *ngIf="email?.errors?.['email']">
+            Wrong email format!
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-column mb-3">
+        <label class="mb-1" for="password">Password</label>
+        <input id="password" type="password" formControlName="password" pPassword>
+        <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="text-red-500 text-sm">
+          <div *ngIf="password?.errors?.['required']">
+            Password is required!
+          </div>
+          <div *ngIf="password?.errors?.['passwordStrength']">
+            Wrong password format!
+          </div>
+        </div>
+      </div>
+
+      <div class="flex align-items-center justify-content-between mt-5">
+        <p-button label="Sign In" (onClick)="signIn()"></p-button>
+        <a routerLink="/login">Log In</a>
+      </div>
+
+    </form>
+
   </div>
-
-  <form [formGroup]="signinForm">
-
-    <div class="form-input">
-      <label for="username">Username</label>
-      <input id="username" type="text" formControlName="username" pInputText>
-      <div *ngIf="username?.invalid && (username?.dirty || username?.touched)" class="err">
-        Username is required.
-      </div>
-    </div>
-
-    <div class="form-input">
-      <label for="email">Email</label>
-      <input id="email" type="email" formControlName="email" pInputText>
-      <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="err">
-        <div *ngIf="email?.errors?.['required']">
-          Email is required!
-        </div>
-        <div *ngIf="email?.errors?.['email']">
-          Wrong email format!
-        </div>
-      </div>
-    </div>
-
-    <div class="form-input">
-      <label for="password">Password</label>
-      <input id="password" type="password" formControlName="password" pPassword>
-      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="err">
-        <div *ngIf="password?.errors?.['required']">
-          Password is required!
-        </div>
-        <div *ngIf="password?.errors?.['passwordStrength']">
-          Wrong password format!
-        </div>
-      </div>
-    </div>
-
-    <div class="form-actions">
-      <p-button label="Sign In" (onClick)="signIn()"></p-button>
-      <a routerLink="/login">Log In</a>
-    </div>
-
-  </form>
-
 </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { accountModuleAnimation } from 'src/shared/animations/routerTransition';
 import { FormBuilder, Validators } from '@angular/forms';
 import { createPasswordStrengthValidator } from 'src/shared/controls/controls';
 import { MessageService } from 'primeng/api';
@@ -7,13 +6,11 @@ import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss'],
-  animations: [accountModuleAnimation()],
   providers: [MessageService]
 })
 export class SigninComponent {
 
-  signinForm = this.fb.group({
+  signinForm = this.formBuilder.group({
     username: ['', Validators.required],
     email: ['', {
       validators: [
@@ -32,7 +29,7 @@ export class SigninComponent {
   });
 
   constructor(
-    private fb: FormBuilder,
+    private formBuilder: FormBuilder,
     private messageService: MessageService
   ) { }
 
